@@ -1,12 +1,12 @@
 # <h1> To Do List App </h1>
 
-<h2>Using Back-End Technologies</h2>
+<h2>Using Technologies</h2>
 <ul>
 <li>Node Js</li>
 <li>Express ( FrameWork )</li>
 <li>MongoDB</li>
 </ul>
-<h2>Using Back-End Packages</h2>
+<h2>Using Packages</h2>
 <ul>
 <li>express</li>
 <li>ejs</li>
@@ -46,4 +46,49 @@
             |__todo.ejs
             |__login.ejs
             |__signup.ejs
+</pre>
+</hr>
+<h3>Back_End</h3>
+<pre>
+-server
+    |__server.js
+    |__app.js
+    |__.env
+    |__.gitignore
+    |
+    |__services
+    |   |__config.js
+    |   |__mongodb.js
+    |
+    |__routes
+    |   |__auth
+    |   |   |__login.router.js
+    |   |   |__signup.router.js
+    |   |   |__refresh.router.js
+    |   |
+    |   |__todo
+    |       |__todo.router.js
+    |       |__users.router.js
+    |
+    |__controllers
+    |    |__auth
+    |    |   |__login.routers.js
+    |    |   |__signup.routers.js
+    |    |   |__refresh.routers.js
+    |    |
+    |    |__todo
+    |        |__todo.controller.js
+    |        |__users.controller.js
+    |
+    |__models
+        |__auth
+        |   |__login.model.js
+        |   |__signup.model.js
+        |   |__refresh.model.js
+        |
+        |__todo
+            |__todo.model.js
+            |__users.model.js
+            |__todo.mongo.js
+            |__user.mongo.js
 </pre>
