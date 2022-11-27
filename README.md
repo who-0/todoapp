@@ -1,12 +1,12 @@
 # <h1> To Do List App </h1>
 
-<h2>Using Technologies</h2>
+<h2>Using Back-End Technologies</h2>
 <ul>
 <li>Node Js</li>
 <li>Express ( FrameWork )</li>
 <li>MongoDB</li>
 </ul>
-<h2>Using Packages</h2>
+<h2>Using Back-End Packages</h2>
 <ul>
 <li>express</li>
 <li>ejs</li>
