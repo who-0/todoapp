@@ -92,3 +92,6 @@
             |__todo.mongo.js
             |__user.mongo.js
 </pre>
+
+<h2>ToDo App Architecture</h2>
+![ToDo](https://github.com//who-0/blob/todoapp.git/ToD0App.svg?raw=true)
