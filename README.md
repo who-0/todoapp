@@ -95,4 +95,5 @@
 
 ## ToDo App Architecture
 
-![ToDoApp](https://user-images.githubusercontent.com/56252622/204966621-aed70e6b-28b2-43c2-8d3b-2fda766876fe.jpeg)
+![ToDoApp](https://user-images.githubusercontent.com/56252622/205043323-d564b197-a7f0-43c5-9deb-e6cfb35ac7a4.png)
+
