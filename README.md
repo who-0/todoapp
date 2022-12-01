@@ -93,5 +93,6 @@
             |__user.mongo.js
 </pre>
 
-<h2>ToDo App Architecture</h2>
+## ToDo App Architecture
+
 ![ToDoApp](https://user-images.githubusercontent.com/56252622/204966621-aed70e6b-28b2-43c2-8d3b-2fda766876fe.jpeg)
