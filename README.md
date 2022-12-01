@@ -1,11 +1,11 @@
 # <h1> To Do List App </h1>
 
-<h2>Using Technologies</h2>
-<ul>
-<li>Node Js</li>
-<li>Express ( FrameWork )</li>
-<li>MongoDB</li>
-</ul>
+## Tech Stack
+
+**Client:** HTML, CSS, JS, EJS
+
+**Server:** Node, Express, MongoDB
+
 <h2>Using Packages</h2>
 <ul>
 <li>express</li>
@@ -16,7 +16,33 @@
 <li>helmet</li>
 <li>passport</li>
 </ul>
-</hr>
+
+## Run Locally
+
+Clone the project
+
+```bash
+  git clone https://github.com/who-0/todoapp.git
+```
+
+Go to the project directory
+
+```bash
+  cd todoapp
+```
+
+Install dependencies
+
+```bash
+  npm install
+```
+
+Start the server
+
+```bash
+  npm start
+```
+
 <h2><i>File Structure</i></h2>
 <h3>Front_End</h3>
 <pre>
@@ -97,6 +123,16 @@
 
 ![ToDoApp](https://user-images.githubusercontent.com/56252622/205043323-d564b197-a7f0-43c5-9deb-e6cfb35ac7a4.png)
 
-## ToDo App Prototype
+## ToDo App UI Design
 
-<iframe style="border: 1px solid rgba(0, 0, 0, 0.1);" width="800" height="450" src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Fproto%2FhTyu0pdw1ti1ebQg2wBIrh%2FToDoApp%3Fnode-id%3D3%253A68%26scaling%3Dscale-down-width%26page-id%3D0%253A1" allowfullscreen></iframe>
+### ToDo App Page
+
+![ToDoApp-1](https://user-images.githubusercontent.com/56252622/205055271-19d0f8a7-3d11-44a9-8a7e-4b061abf95b4.png)
+
+### ToDo App Signup Page
+
+![ToDoApp-2](https://user-images.githubusercontent.com/56252622/205055912-508dd773-f58c-41fa-8cbf-a846e26549d5.png)
+
+### ToDo App Login Page
+
+![ToDoApp-3](https://user-images.githubusercontent.com/56252622/205056011-2a6537ee-c68d-46c0-99a7-67910487d9bb.png)
