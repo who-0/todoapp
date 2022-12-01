@@ -94,4 +94,4 @@
 </pre>
 
 <h2>ToDo App Architecture</h2>
-![ToDo](https://github.com//who-0/blob/todoapp.git/ToD0App.svg?raw=true)
+![ToDoApp](https://user-images.githubusercontent.com/56252622/204966046-865453c4-fa76-45e0-a806-fef31ad88b58.svg)
