@@ -1,5 +1,7 @@
 # <h1> To Do List App </h1>
 
+![Logo](https://user-images.githubusercontent.com/56252622/205276176-cb4d4c08-09d8-4adc-b066-f553111bba31.png)
+
 ## Tech Stack
 
 **Client:** HTML, CSS, JS, EJS
