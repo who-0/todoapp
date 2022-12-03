@@ -123,7 +123,7 @@ Start the server
 
 ## ToDo App Architecture
 
-![ToDoApp](https://user-images.githubusercontent.com/56252622/205436606-9ae4b63d-8e72-4706-ae89-7d9da49967a4.png)
+![ToDoApp](https://user-images.githubusercontent.com/56252622/205436670-d7b8af83-71b0-46a9-968b-d492e72833ea.png)
 
 ## ToDo App UI Design
 
