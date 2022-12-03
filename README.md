@@ -1,6 +1,6 @@
 # <h1> To Do List App </h1>
 
-![Logo]((https://user-images.githubusercontent.com/56252622/205436670-d7b8af83-71b0-46a9-968b-d492e72833ea.png)
+![Logo](https://user-images.githubusercontent.com/56252622/205436670-d7b8af83-71b0-46a9-968b-d492e72833ea.png)
 
 ## Tech Stack
 
