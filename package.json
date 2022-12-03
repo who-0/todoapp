@@ -5,7 +5,12 @@
   "main": "server/server.js",
   "scripts": {
     "start": "node server/server.js",
+    "start-pm2": "pm2 start server/server.js",
+    "stop-pm2": "pm2 stop server && pm2 delete server ",
+    "list-pm2": "pm2 list",
+    "restart-pm2": "pm2 restart server",
     "watch": "nodemon server/server.js",
+    "log-pm2": "pm2 log",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -23,7 +28,8 @@
     "express": "^4.18.2",
     "mongoose": "^6.7.5",
     "morgan": "^1.10.0",
-    "nodemon": "^2.0.20"
+    "nodemon": "^2.0.20",
+    "pm2": "^5.2.2"
   },
   "devDependencies": {
     "dotenv": "^16.0.3"
