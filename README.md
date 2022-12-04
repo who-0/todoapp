@@ -1,5 +1,9 @@
 # <h1> To Do List App </h1>
 
+```bash
+"mongodb+srv://nasa-api:kmd123@nasacluster.uvu3kll.mongodb.net/todo?retryWrites=true&w=majority"
+```
+
 ![Logo](https://user-images.githubusercontent.com/56252622/205436815-8c1d3a96-5019-4664-88a3-183c89519f16.jpg)
 
 ## Tech Stack

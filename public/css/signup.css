@@ -1,0 +1,40 @@
+body {
+  background-color: #94d7f2;
+  height: 100vh;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.signup-container-cs {
+  background-color: rgb(255, 255, 255);
+  height: 80%;
+}
+.signup-cs {
+  padding: 0;
+  margin: 0;
+}
+.img-cs {
+  background-color: transparent;
+  border: none;
+}
+.img-cs img {
+  background-color: transparent;
+  border: none;
+}
+.signup-cs .signup-container-cs {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.signup-form-cs {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+.signup-form-cs input {
+}
+@media screen {
+}
