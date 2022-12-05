@@ -1,6 +1,6 @@
 const path = require("path");
 const express = require("express");
-const ejs = require("ejs");
+const cookie = require("cookie-parser");
 const helmet = require("helmet");
 const morgan = require("morgan");
 const api = require("./routers/api");
@@ -13,6 +13,7 @@ app.set("views", path.join(__dirname, "..", "views"));
 app.use(helmet());
 app.use(morgan("tiny"));
 app.use(express.json());
+app.use(cookie());
 app.use(express.static(path.join(__dirname, "..", "public")));
 app.use(verifyRouer, api);
 
