@@ -2,7 +2,7 @@ const jwt = require("jsonwebtoken");
 const bcrypt = require("bcryptjs");
 const TOKEN_API = process.env.TOKEN_API;
 
-const verifymiddle = (req, res, next) => {
+const verifyToken = (req, res, next) => {
   const { accessToken } = req.cookies;
   console.log(accessToken);
   if (!accessToken) {
