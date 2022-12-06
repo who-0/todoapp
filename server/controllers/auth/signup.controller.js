@@ -19,6 +19,7 @@ const httpPostSignup = async (req, res) => {
     });
   }
   const A_token = process.env.TOKEN_API;
+  //todo optional id
   const accesstoken = jwt.sign({ email }, A_token, {
     expiresIn: "5s",
   });
@@ -30,7 +31,7 @@ const httpPostSignup = async (req, res) => {
   };
   await addNewUser(user);
 
-  res.cookie("accessToken", accesstoken);
+  res.cookie("accessToken", accesstoken, { httpOnly: true });
   return res.status(201).json({ user });
 };
 
