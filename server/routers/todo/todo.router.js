@@ -1,8 +1,9 @@
 const express = require("express");
+const verifyToken = require("../../middlewares/verify.middleware");
 
 const todoRouter = express.Router();
 
-todoRouter.get("/", (req, res) => {
+todoRouter.get("/", verifyToken, (req, res) => {
   res.send("This is TODO ROuter");
 });
 
