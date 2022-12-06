@@ -11,8 +11,8 @@ const verifyToken = (req, res, next) => {
     });
   }
   jwt.verify(accessToken, TOKEN_API, (err, data) => {
-    if (!err) {
-      return res.status(404).json({
+    if (err) {
+      res.status(400).json({
         error: err.message,
       });
     }

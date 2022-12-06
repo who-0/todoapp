@@ -6,7 +6,7 @@ const httpGetUser = async (req, res) => {
   const solvepwd = await bcrypt.compare(password, user.password);
   if (!email && !password) {
     return res.status(400).json({
-      error: "Please ",
+      error: "Please Input All. ",
     });
   }
   if (!user) {

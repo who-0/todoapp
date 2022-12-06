@@ -18,9 +18,9 @@ const httpPostSignup = async (req, res) => {
       error: "Please match your password!",
     });
   }
-  const A_token = process.env.A_TOKEN;
+  const A_token = process.env.TOKEN_API;
   const accesstoken = jwt.sign({ email }, A_token, {
-    expiresIn: "5m",
+    expiresIn: "5s",
   });
   const hashedPassword = await bcrypt.hash(password, 10);
   const user = {
