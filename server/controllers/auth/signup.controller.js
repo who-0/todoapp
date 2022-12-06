@@ -3,7 +3,7 @@ const bcrypt = require("bcryptjs");
 const { addNewUser, findUser } = require("../../models/auth/signup.model");
 
 const httpGetSignup = (req, res) => {
-  res.render("pages/signup");
+  res.send("this is signup router");
 };
 
 const httpPostSignup = async (req, res) => {
