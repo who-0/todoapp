@@ -7,7 +7,7 @@ const {
   httpPostSignup,
 } = require("../../controllers/auth/signup.controller");
 
-signupRouter.get("/", verifyToken, httpGetSignup);
+signupRouter.get("/", httpGetSignup);
 signupRouter.post("/", httpPostSignup);
 
 module.exports = signupRouter;
