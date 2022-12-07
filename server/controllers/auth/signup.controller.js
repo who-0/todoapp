@@ -19,20 +19,23 @@ const httpPostSignup = async (req, res) => {
     });
   }
   const A_token = process.env.TOKEN_API;
+  const R_token = process.env.R_TOKEN_API;
   //todo optional id
   const accesstoken = jwt.sign({ email }, A_token, {
-    expiresIn: "5s",
+    expiresIn: "3m",
   });
-  const hashedPassword = await bcrypt.hash(password, 10);
+  const refreshToken = jwt.sign({ email }, R_token);
+  const hashedPassword = await bcrypt.hash(password, 8);
   const user = {
     username,
     email,
     password: hashedPassword,
+    refreshToken,
   };
   await addNewUser(user);
-
   res.cookie("accessToken", accesstoken, { httpOnly: true });
-  return res.status(201).json({ user });
+  res.cookie("refreshToken", refreshToken, { httpOnly: true });
+  return res.status(201).json(user);
 };
 
 module.exports = {

@@ -7,6 +7,6 @@ loginRouter.get("/", (req, res) => {
   res.send("This is login ROuter");
 });
 
-loginRouter.post("/", verifyToken, httpGetUser);
+loginRouter.post("/", httpGetUser);
 
 module.exports = loginRouter;

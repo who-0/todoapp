@@ -8,8 +8,7 @@ const httpGetUser = async (req, res) => {
     return res.status(400).json({
       error: "Please Input All. ",
     });
-  }
-  if (!user) {
+  }else if (!user) {
     return res.status(404).json({
       error: "Check your email.",
     });
@@ -18,10 +17,22 @@ const httpGetUser = async (req, res) => {
       error: "Incorrect Password. Please try again!",
     });
   } else {
+    generateToken(user);
     return res.status(200).json(user);
   }
 };
 
+
+function generateToken(data) {
+  const { email } = data;
+  //todo optional id
+  const accessToken = jwt.sign({ email }, TOKEN_API, { expiresIn: "1m" });
+  const refreshToken = jwt.sign({email},)
+  res.cookie("accessToken", accessToken, { httpOnly: true });
+  res.cookie('refreshToken',refreshToken,{httpOnly:true});
+}
+
 module.exports = {
   httpGetUser,
+  generateToken,
 };
