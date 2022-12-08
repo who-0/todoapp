@@ -1,6 +1,5 @@
 const jwt = require("jsonwebtoken");
 const { generateToken } = require("../controllers/auth/login.controller");
-const TOKEN_API = process.env.TOKEN_API;
 
 const verifyToken = (req, res, next) => {
   const { accessToken } = req.cookies;
@@ -12,7 +11,16 @@ const verifyToken = (req, res, next) => {
         //! check jwt expries
         console.log(err.message);
         if (err.message === "jwt expires") {
-          generateToken(data);
+          const TOKEN_API = process.env.TOKEN_API;
+          const R_TOKEN = process.env.R_TOKEN_API;
+          const { email } = data;
+          //todo optional id
+          const accessToken = jwt.sign({ email }, TOKEN_API, {
+            expiresIn: "1m",
+          });
+          const refreshToken = jwt.sign({ email }, R_TOKEN);
+          res.cookie("accessToken", accessToken, { httpOnly: true });
+          res.cookie("refreshToken", refreshToken, { httpOnly: true });
         } else {
           res.status(400).json({
             error: err.message,

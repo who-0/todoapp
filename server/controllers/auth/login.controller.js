@@ -1,4 +1,5 @@
 const bcrypt = require("bcryptjs");
+const jwt = require("jsonwebtoken");
 const { getUser } = require("../../models/auth/login.model");
 const httpGetUser = async (req, res) => {
   const { email, password } = req.body;
@@ -8,7 +9,7 @@ const httpGetUser = async (req, res) => {
     return res.status(400).json({
       error: "Please Input All. ",
     });
-  }else if (!user) {
+  } else if (!user) {
     return res.status(404).json({
       error: "Check your email.",
     });
@@ -17,22 +18,18 @@ const httpGetUser = async (req, res) => {
       error: "Incorrect Password. Please try again!",
     });
   } else {
-    generateToken(user);
+    console.log("This is login");
+    const TOKEN_API = process.env.TOKEN_API;
+    const R_TOKEN = process.env.R_TOKEN_API;
+    //todo optional id
+    const accessToken = jwt.sign({ email }, TOKEN_API, { expiresIn: "1m" });
+    const refreshToken = jwt.sign({ email }, R_TOKEN);
+    res.cookie("accessToken", accessToken, { httpOnly: true });
+    res.cookie("refreshToken", refreshToken, { httpOnly: true });
     return res.status(200).json(user);
   }
 };
 
-
-function generateToken(data) {
-  const { email } = data;
-  //todo optional id
-  const accessToken = jwt.sign({ email }, TOKEN_API, { expiresIn: "1m" });
-  const refreshToken = jwt.sign({email},)
-  res.cookie("accessToken", accessToken, { httpOnly: true });
-  res.cookie('refreshToken',refreshToken,{httpOnly:true});
-}
-
 module.exports = {
   httpGetUser,
-  generateToken,
 };
