@@ -1,6 +1,7 @@
 const path = require("path");
 const express = require("express");
 const cookie = require("cookie-parser");
+const bdparser = require("body-parser");
 const helmet = require("helmet");
 const morgan = require("morgan");
 const api = require("./routers/api");
@@ -10,6 +11,7 @@ const app = express();
 app.set("view engine", "ejs");
 app.set("views", path.join(__dirname, "..", "views"));
 
+app.use(bdparser.urlencoded({ extended: true }));
 app.use(helmet());
 app.use(morgan("tiny"));
 app.use(express.json());

@@ -8,6 +8,7 @@ const httpGetSignup = (req, res) => {
 
 const httpPostSignup = async (req, res) => {
   const { username, email, password, cpassword } = req.body;
+  console.log(username, email, password, cpassword);
   const oldUser = await findUser(email);
   if (oldUser) {
     return res.status(400).json({
