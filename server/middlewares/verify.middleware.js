@@ -6,19 +6,24 @@ const verifyToken = (req, res, next) => {
   if (!accessToken) {
     return res.redirect("/login");
   } else {
-    jwt.verify(accessToken, TOKEN_API, (err, data) => {
-      if (err) {
-        if (err.message === "jwt expired") {
-          res.redirect("/refresh");
-        } else {
-          res.status(400).json({
-            error: err.message,
-          });
+    try {
+      jwt.verify(accessToken, TOKEN_API, (err, data) => {
+        if (err) {
+          if (err.message === "jwt expired") {
+            return res.redirect("/refresh");
+          } else {
+            return res.status(400).json({
+              error: err.message,
+            });
+          }
         }
-      }
-      req.data = data;
-      next();
-    });
+        req.data = data;
+        next();
+      });
+    } catch (error) {
+      console.log(error);
+      return res.redirect("/error");
+    }
   }
 };
 
