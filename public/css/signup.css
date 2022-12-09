@@ -9,7 +9,7 @@ body {
 }
 .signup-container-cs {
   background-color: rgb(255, 255, 255);
-  /* height: 80%; */
+  border-radius: 2vmax;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -38,8 +38,30 @@ body {
   flex-direction: column;
 }
 .signup-form-cs input {
-  margin: 3% 0;
-  width: 100%;
+  margin: 2% 0;
+  width: 80%;
+  height: 40px;
+  border-radius: 0.5vmax;
+  border: 1px solid #94d7f2;
+  text-align: center;
 }
-@media screen {
+.signup-form-cs button {
+  border: 1px solid #94d7f2;
+  border-radius: 1vmax;
+  outline: none;
+  padding: 2% 10%;
+  background-color: white;
+  letter-spacing: 1px;
+  color: #70c6e9;
+  font-weight: bold;
+}
+.signup-form-cs button:hover {
+  background-color: #94d7f2;
+  color: white;
+}
+@media (min-width: 768px) {
+  .signup-form-cs button:active {
+    background-color: #94d7f2;
+    color: white;
+  }
 }
