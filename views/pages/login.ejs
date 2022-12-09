@@ -1,0 +1,21 @@
+<%- include('../components/header.ejs'); -%>
+    <div class="container-fluid signup-container-cs h-100">
+        <div class="row w-100 h-100">
+            <div class="col-md-6 img-cs my-3">
+                <img src="/img/login.svg" class="img-thumbnail w-100 h-100" alt="signup" />
+            </div>
+            <div class="col-md-6 signup-cs mb-4">
+                <div class="w-100 h-100 signup-container-cs">
+                    <form action="/signup" method="post" class="signup-form-cs w-100">
+                        <input type="email" name="email" id="email" placeholder="Email" required />
+                        <input type="password" name="password" id="password" placeholder="Password" autocomplete="off"
+                            required />
+                        <button type="submit" class="my-3">Login</button>
+                        <pre>You don't have accont -> <a href="/signup">Signup</a> </pre>
+                    </form>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <%- include('../components/footer.ejs'); -%>
