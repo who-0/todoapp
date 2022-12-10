@@ -1,9 +1,9 @@
 const users = require("../todo/users.mongo");
 
-async function getUser(email) {
-  return await users.findOne({ email }, { __v: 0 });
+async function getUserWithEmail(email) {
+  return await users.findOne({ email }, { _id: 0, __v: 0 });
 }
 
 module.exports = {
-  getUser,
+  getUserWithEmail,
 };

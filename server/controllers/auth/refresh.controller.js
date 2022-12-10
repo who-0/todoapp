@@ -1,5 +1,4 @@
 const jwt = require("jsonwebtoken");
-const { getUser } = require("../../models/auth/login.model");
 const users = require("../../models/todo/users.mongo");
 const R_TOKEN = process.env.R_TOKEN_API;
 const TOKEN_API = process.env.TOKEN_API;

@@ -1,5 +1,4 @@
 const jwt = require("jsonwebtoken");
-const { generateToken } = require("../controllers/auth/login.controller");
 const TOKEN_API = process.env.TOKEN_API;
 const verifyToken = (req, res, next) => {
   const { accessToken } = req.cookies;

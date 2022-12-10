@@ -3,6 +3,7 @@ const verifyRouer = (req, res, next) => {
   if (
     url === "/" ||
     url === "/users" ||
+    url === "/users/:id" ||
     url === "/login" ||
     url === "/signup" ||
     url === "/refresh" ||
@@ -10,6 +11,7 @@ const verifyRouer = (req, res, next) => {
   ) {
     next();
   } else {
+    console.log("this is router verify");
     return res.redirect("/error");
   }
 };
