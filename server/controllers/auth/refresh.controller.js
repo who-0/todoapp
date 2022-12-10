@@ -14,7 +14,7 @@ const httpGetRefresh = async (req, res) => {
     const { email } = data;
     console.log(email);
     const accessToken = jwt.sign({ email }, TOKEN_API, {
-      expiresIn: "1m",
+      expiresIn: "24h",
     });
     const refreshToken = jwt.sign({ email }, R_TOKEN);
     await users.findOneAndUpdate({ email }, { refreshToken });

@@ -1,6 +1,11 @@
 const jwt = require("jsonwebtoken");
 const bcrypt = require("bcryptjs");
-const { addNewUser, findUser } = require("../../models/auth/signup.model");
+
+const {
+  addNewUser,
+  findUser,
+  getLastestID,
+} = require("../../models/auth/signup.model");
 
 const httpGetSignup = (req, res) => {
   res.render("pages/signup", { title: "Signup" });
@@ -19,15 +24,16 @@ const httpPostSignup = async (req, res) => {
         error: "Please match your password!",
       });
     } else {
+      let userId = (await getLastestID()) + 1;
       const A_token = process.env.TOKEN_API;
       const R_token = process.env.R_TOKEN_API;
-      //todo optional id
-      const accesstoken = jwt.sign({ email }, A_token, {
-        expiresIn: "3m",
+      const accesstoken = jwt.sign({ userId, username, email }, A_token, {
+        expiresIn: "24h",
       });
-      const refreshToken = jwt.sign({ email }, R_token);
+      const refreshToken = jwt.sign({ userId, username, email }, R_token);
       const hashedPassword = await bcrypt.hash(password, 8);
       const user = {
+        userId,
         username,
         email,
         password: hashedPassword,

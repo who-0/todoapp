@@ -1,6 +1,10 @@
 const mongoose = require("mongoose");
 
 const signupSechema = new mongoose.Schema({
+  userId: {
+    type: Number,
+    required: true,
+  },
   username: {
     type: String,
     required: true,
