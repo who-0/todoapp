@@ -1,0 +1,12 @@
+.profile-body {
+  background-color: white;
+  border-radius: 1vmax;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+.profile-body h1 {
+  text-transform: capitalize;
+}

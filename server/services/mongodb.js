@@ -1,6 +1,7 @@
 const mongoose = require("mongoose");
 const MONGO_URL = process.env.MONGO_URL;
 
+mongoose.set("strictQuery", true);
 mongoose.connection.once("open", () => {
   console.log("MongoDB connection ready");
 });
