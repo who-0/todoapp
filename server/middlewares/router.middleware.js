@@ -1,9 +1,8 @@
-const verifyRouer = (req, res, next) => {
+const verifyRouer = async (req, res, next) => {
   const url = req.url;
   if (
     url === "/" ||
-    url === "/users" ||
-    url === "/users/:id" ||
+    url === "/profile" ||
     url === "/login" ||
     url === "/signup" ||
     url === "/refresh" ||

@@ -5,7 +5,7 @@ const { getUserWithEmail } = require("../../models/auth/login.model");
 const httpGetUser = async (req, res) => {
   try {
     const { email, password } = req.body;
-    const user = await getUser(email);
+    const user = await getUserWithEmail(email);
     const solvepwd = await bcrypt.compare(password, user.password);
     if (!email && !password) {
       return res.status(400).json({
