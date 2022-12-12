@@ -9,7 +9,7 @@ const userRouter = require("./todo/users.router");
 const error = require("./auth/error.router");
 
 api.use("/", todoRouter);
-api.use("/", userRouter);
+api.use("/user", userRouter);
 api.use("/login", loginRouter);
 api.use("/signup", signupRouter);
 api.use("/refresh", refreshRouter);
