@@ -59,6 +59,20 @@ body {
   background-color: #94d7f2;
   color: white;
 }
+.login-error,
+.login-success {
+  padding: 5px 5px;
+  text-align: center;
+  border-radius: 0.5vmax;
+}
+.login-error {
+  color: red;
+  border: 1px solid red;
+}
+.login-success {
+  color: rgb(75, 235, 75);
+  border: 1px solid rgb(75, 235, 75);
+}
 @media (min-width: 768px) {
   .signup-form-cs button:active {
     background-color: #94d7f2;

@@ -7,25 +7,39 @@ const httpGetUser = async (req, res) => {
     const { email, password } = req.body;
 
     if (!email && !password) {
-      return res.status(400).json({
-        error: "Please Input All. ",
+      // return res.status(400).json({
+      //   error: "Please Input All. ",
+      // });
+      return res.render("pages/login", {
+        title: "Login",
+        error: `Please Input All.`,
+        success: null,
       });
     }
     const user = await getUserWithEmail(email);
     if (!user) {
-      return res.status(404).json({
-        error: "Check your email.",
+      // return res.status(404).json({
+      //   error: "Check your email.",
+      // });
+      return res.render("pages/login", {
+        title: "Login",
+        error: `Check your email.`,
+        success: null,
       });
     }
     const solvepwd = await bcrypt.compare(password, user.password);
     if (!solvepwd) {
-      return res.status(404).json({
-        error: "Incorrect Password. Please try again!",
+      // return res.status(404).json({
+      //   error: "Incorrect Password. Please try again!",
+      // });
+      return res.render("pages/login", {
+        title: "Login",
+        error: `Incorrect Password. Please try again!`,
+        success: null,
       });
     } else {
       const TOKEN_API = process.env.TOKEN_API;
       const R_TOKEN = process.env.R_TOKEN_API;
-      //todo optional id
       const accessToken = jwt.sign(
         { userId: user.userId, username: user.username, email },
         TOKEN_API,

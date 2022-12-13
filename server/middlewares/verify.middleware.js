@@ -3,7 +3,11 @@ const TOKEN_API = process.env.TOKEN_API;
 const verifyToken = (req, res, next) => {
   const { accessToken } = req.cookies;
   if (!accessToken) {
-    return res.redirect("/login");
+    return res.render("pages/login", {
+      title: "Login",
+      error: "You need to login first.",
+      success: null,
+    });
   } else {
     try {
       jwt.verify(accessToken, TOKEN_API, (err, data) => {
