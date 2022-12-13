@@ -6,12 +6,15 @@ const signupRouter = require("./auth/signup.router");
 const todoRouter = require("./todo/todo.router");
 const userRouter = require("./todo/profile.router");
 const error = require("./auth/error.router");
-
+const logoutRouter = require("./todo/logout.router");
+const deleteRouter = require("./todo/delete.router");
 api.use("/", todoRouter);
 api.use("/profile", userRouter);
 api.use("/login", loginRouter);
+api.use("/logout", logoutRouter);
 api.use("/signup", signupRouter);
 api.use("/refresh", refreshRouter);
+api.use("/delete", deleteRouter);
 api.use("/error", error);
 
 module.exports = api;

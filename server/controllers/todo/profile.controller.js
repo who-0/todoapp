@@ -1,6 +1,5 @@
 const { getUserWithUserId } = require("../../models/todo/user.model");
 const httpGetProfile = async (req, res) => {
-  console.log(req.data);
   const { userId, username, email } = req.data;
   if (!userId) {
     return res.status(404).json({

@@ -3,9 +3,12 @@
         <h1>
             <%= username %>
         </h1>
-        <p>
+        <p class="mb-5">
             <%= email %>
         </p>
-        <a href="/logout"></a>
+        <div class="btn-container w-100 ">
+            <a href="/logout" class="profile-logout">logout</a>
+            <a href="/delete" class="profile-delete">delete account</a>
+        </div>
     </div>
     <%- include('../components/footer.ejs'); -%>

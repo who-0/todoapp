@@ -3,14 +3,15 @@ const verifyRouer = async (req, res, next) => {
   if (
     url === "/" ||
     url === "/profile" ||
-    url === "/login" ||
-    url === "/signup" ||
     url === "/refresh" ||
+    url === "/login" ||
+    url === "/logout" ||
+    url === "/signup" ||
+    url === "/delete" ||
     url === "/error"
   ) {
     next();
   } else {
-    console.log("this is router verify");
     return res.redirect("/error");
   }
 };
