@@ -16,7 +16,10 @@ const httpDelete = async (req, res) => {
     });
   } catch (error) {
     console.log(error);
-    return res.render("pages/error");
+    return res.render("pages/error", {
+      title: "Error",
+      message: error.message,
+    });
   }
 };
 

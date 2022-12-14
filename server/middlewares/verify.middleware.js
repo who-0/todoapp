@@ -15,8 +15,9 @@ const verifyToken = (req, res, next) => {
           if (err.message === "jwt expired") {
             return res.redirect("/refresh");
           } else {
-            return res.status(400).json({
-              error: err.message,
+            return res.render("pages/error", {
+              title: "Error",
+              message: err.message,
             });
           }
         }
@@ -25,7 +26,10 @@ const verifyToken = (req, res, next) => {
       });
     } catch (error) {
       console.log(error);
-      return res.redirect("/error");
+      return res.render("pages/error", {
+        title: "Error",
+        message: err.message,
+      });
     }
   }
 };

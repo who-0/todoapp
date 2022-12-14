@@ -6,12 +6,15 @@ const httpGetRefresh = async (req, res) => {
   const { refreshToken } = req.cookies;
   await jwt.verify(refreshToken, R_TOKEN, async (err, data) => {
     if (err) {
-      return res.status(400).json({
-        error: err.message,
+      // return res.status(400).json({
+      //   error: err.message,
+      // });
+      return res.render("pages/error", {
+        title: "Error",
+        message: err.message,
       });
     }
     const { email } = data;
-    console.log(email);
     const accessToken = jwt.sign({ email }, TOKEN_API, {
       expiresIn: "24h",
     });

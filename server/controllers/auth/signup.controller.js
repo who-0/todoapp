@@ -20,18 +20,12 @@ const httpPostSignup = async (req, res) => {
     const { username, email, password, cpassword } = req.body;
     const oldUser = await findUser(email);
     if (oldUser) {
-      // return res.status(400).json({
-      //   error: "You are already have account. Please Login!",
-      // });
       return res.render("pages/signup", {
         title: "Signup",
         error: "You are already have account. Please Login!",
         success: null,
       });
     } else if (password !== cpassword) {
-      // return res.status(400).json({
-      //   error: "Please match your password!",
-      // });
       res.render("pages/signup", {
         title: "Signup",
         error: "Please match your password!",
@@ -60,7 +54,10 @@ const httpPostSignup = async (req, res) => {
     }
   } catch (error) {
     console.log(error);
-    return res.redirect("/error");
+    return res.render("pages/error", {
+      title: "Error",
+      message: "System Fail! Please Signup Again",
+    });
   }
 };
 

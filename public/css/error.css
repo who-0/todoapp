@@ -1,0 +1,32 @@
+.error-container {
+  background-color: white;
+  border-radius: 1vmax;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+.error-container img {
+  background-color: transparent;
+  border: none;
+}
+
+.error-container h1 {
+  color: rgb(216, 15, 15);
+  background-color: rgb(245, 98, 98);
+  border: 2px solid rgb(238, 27, 27);
+  border-radius: 1vmax;
+}
+.error-container a {
+  text-decoration: none;
+  text-transform: capitalize;
+  padding: 10px 15px;
+  border-radius: 0.5vmax;
+  margin: 0;
+  border: 1px solid rgb(20, 185, 240);
+  color: black;
+}
+.error-container a:hover {
+  color: white;
+  background-color: rgb(20, 185, 240);
+}

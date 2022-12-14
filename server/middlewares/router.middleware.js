@@ -12,7 +12,10 @@ const verifyRouer = async (req, res, next) => {
   ) {
     next();
   } else {
-    return res.redirect("/error");
+    return res.render("pages/error", {
+      title: "Error",
+      message: "Your Request is not defined on our system!",
+    });
   }
 };
 
