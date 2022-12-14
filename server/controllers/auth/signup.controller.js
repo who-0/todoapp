@@ -8,7 +8,11 @@ const {
 } = require("../../models/auth/signup.model");
 
 const httpGetSignup = (req, res) => {
-  res.render("pages/signup", { title: "Signup" });
+  return res.render("pages/signup", {
+    title: "Signup",
+    error: null,
+    success: null,
+  });
 };
 
 const httpPostSignup = async (req, res) => {
@@ -16,12 +20,22 @@ const httpPostSignup = async (req, res) => {
     const { username, email, password, cpassword } = req.body;
     const oldUser = await findUser(email);
     if (oldUser) {
-      return res.status(400).json({
+      // return res.status(400).json({
+      //   error: "You are already have account. Please Login!",
+      // });
+      return res.render("pages/signup", {
+        title: "Signup",
         error: "You are already have account. Please Login!",
+        success: null,
       });
     } else if (password !== cpassword) {
-      return res.status(400).json({
+      // return res.status(400).json({
+      //   error: "Please match your password!",
+      // });
+      res.render("pages/signup", {
+        title: "Signup",
         error: "Please match your password!",
+        success: null,
       });
     } else {
       let userId = (await getLastestID()) + 1;

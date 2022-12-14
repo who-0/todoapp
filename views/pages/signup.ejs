@@ -7,6 +7,17 @@
       <div class="col-md-6 signup-cs mb-4">
         <div class="w-100 h-100 signup-container-cs">
           <form action="/signup" method="post" class="signup-form-cs w-100">
+            <div class="login-message w-75">
+              <% if (error) { %>
+                <div class="login-error">
+                  <%= error %>
+                </div>
+                <% } else if (success) { %>
+                  <div class="login-success">
+                    <%= success %>
+                  </div>
+                  <% }%>
+            </div>
             <input type="username" name="username" id="username" placeholder="Username" autocomplete="off" />
             <input type="email" name="email" id="email" placeholder="Email" required />
             <input type="password" name="password" id="password" placeholder="Password" autocomplete="off" required />

@@ -9,7 +9,11 @@ const httpDelete = async (req, res) => {
         throw err;
       }
     });
-    return res.render("pages/signup", { title: "Signup" });
+    return res.render("pages/signup", {
+      title: "Signup",
+      error: null,
+      success: "You are successfully deleted your account",
+    });
   } catch (error) {
     console.log(error);
     return res.render("pages/error");
