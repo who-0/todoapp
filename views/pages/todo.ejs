@@ -1,0 +1,17 @@
+<%- include('../components/header.ejs'); -%>
+    <div class="w-lg-75 todo">
+        <ul class="w-100 h-75 bg-danger m-5 mt-0">
+            <% todos.forEach(todo=> { %>
+                <li class="w-100">
+                    <%= todo.todo %>
+                </li>
+                <% }) %>
+
+        </ul>
+        <form action="/" method="post">
+            <input type="hidden" name="userId" value=<%=userId %> />
+            <input type="text" name="todo" id="todo">
+        </form>
+    </div>
+
+    <%- include('../components/footer.ejs'); -%>

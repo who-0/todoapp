@@ -1,0 +1,15 @@
+.todo {
+  height: 80%;
+  background-color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+.todo ul {
+  list-style: none;
+}
+.todo ul li {
+  background-color: green;
+  border: 1px solid black;
+}
