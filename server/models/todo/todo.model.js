@@ -1,11 +1,25 @@
-const todoDB = require("./todo.mongoose");
-const usersDB = require("./users.mogo");
-
-const addNewToDo = async (id, todo) => {
-  const userID = await usersDB.findById(id, { _id: 0, __v: 0 });
-  return await todoDB.findOneAndUpdate({ userID }, todo, { upsert: true });
+const todoDB = require("./todo.mongo");
+const userDB = require("./users.mongo");
+const DEFAULT_TODO = 0;
+const addNewToDo = async (todo) => {
+  return await todoDB.insertMany(todo);
 };
+
+const getUserToDo = async (userID) => {
+  return await todoDB.find({ userID });
+};
+
+async function getToDoID(userID) {
+  const lastestID = await todoDB.findOne({ userID }).sort("-todoID");
+  console.log(lastestID);
+  if (!lastestID) {
+    return DEFAULT_TODO;
+  }
+  return lastestID.todoID;
+}
 
 module.exports = {
   addNewToDo,
+  getToDoID,
+  getUserToDo,
 };

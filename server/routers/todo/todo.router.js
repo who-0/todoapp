@@ -1,31 +1,14 @@
 const express = require("express");
+const {
+  httpGetTodo,
+  httpAddNewToDo,
+} = require("../../controllers/todo/todo.controller");
 const verifyToken = require("../../middlewares/verify.middleware");
 
 const todoRouter = express.Router();
-const todos = [
-  { todo: "you are my sunshine" },
-  { todo: "you are my everything" },
-  { todo: "you are my everything" },
-  { todo: "you are my everything" },
-  { todo: "you are my everything" },
-  { todo: "you are my everything" },
-  { todo: "you are my everything" },
-  { todo: "you are my everything" },
-  { todo: "you are my everything" },
-  { todo: "you are my everything" },
-  { todo: "you are my everything" },
-];
 
-todoRouter.get("/", verifyToken, (req, res) => {
-  return res.render("pages/todo", {
-    title: "ToDo",
-    userId: req.data.userId,
-    todos,
-  });
-});
+todoRouter.get("/", verifyToken, httpGetTodo);
 
-todoRouter.post("/", verifyToken, (req, res) => {
-  console.log(req.body);
-});
+todoRouter.post("/", verifyToken, httpAddNewToDo);
 
 module.exports = todoRouter;

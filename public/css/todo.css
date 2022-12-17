@@ -8,8 +8,18 @@
 }
 .todo ul {
   list-style: none;
+  padding: 0;
 }
 .todo ul li {
   background-color: green;
   border: 1px solid black;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.todo ul li .todo-delete {
+  text-decoration: none;
+
+  background-color: white;
+  padding: 1% 2%;
 }

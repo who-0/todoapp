@@ -2,8 +2,9 @@
     <div class="w-lg-75 todo">
         <ul class="w-100 h-75 bg-danger m-5 mt-0">
             <% todos.forEach(todo=> { %>
-                <li class="w-100">
+                <li class="m-2 p-2">
                     <%= todo.todo %>
+                        <a href="/delete" class="todo-delete">X</a>
                 </li>
                 <% }) %>
 
@@ -11,7 +12,9 @@
         <form action="/" method="post">
             <input type="hidden" name="userId" value=<%=userId %> />
             <input type="text" name="todo" id="todo">
+            <button type="submit">+</button>
         </form>
+
     </div>
 
     <%- include('../components/footer.ejs'); -%>
