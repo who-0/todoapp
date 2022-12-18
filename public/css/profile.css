@@ -6,6 +6,26 @@
   justify-content: center;
   align-items: center;
   flex-direction: column;
+  position: relative;
+}
+.profile-body .backarrow {
+  color: #70c6e9;
+  position: absolute;
+  top: 4%;
+  left: 2%;
+  width: 2%;
+  height: 5%;
+  background-color: rgba(226, 223, 223, 0.692);
+  display: flex;
+  align-self: center;
+  text-decoration: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 0.5vmax;
+}
+.profile-body .backarrow:hover {
+  background-color: rgba(226, 223, 223, 0.973);
 }
 .profile-body h1 {
   text-transform: capitalize;

@@ -8,6 +8,9 @@ const { getUserWithUserId } = require("../../models/todo/user.model");
 const httpAddNewToDo = async (req, res) => {
   try {
     const { userId, todo } = req.body;
+    if (!todo) {
+      return res.redirect("/");
+    }
     const { email, username } = req.data;
     const user = await getUserWithUserId(userId, username, email);
     const userID = user.userId;
