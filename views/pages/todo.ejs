@@ -4,7 +4,7 @@
             <% todos.forEach(todo=> { %>
                 <li class="m-2 p-2">
                     <%= todo.todo %>
-                        <a href="/delete" class="todo-delete">X</a>
+                        <a href="/delete/<%= todo.todoID %> " class="todo-delete">X</a>
                 </li>
                 <% }) %>
 

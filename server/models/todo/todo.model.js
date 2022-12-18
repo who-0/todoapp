@@ -11,7 +11,6 @@ const getUserToDo = async (userID) => {
 
 async function getToDoID(userID) {
   const lastestID = await todoDB.findOne({ userID }).sort("-todoID");
-  console.log(lastestID);
   if (!lastestID) {
     return DEFAULT_TODO;
   }

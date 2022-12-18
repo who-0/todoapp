@@ -1,5 +1,6 @@
 const verifyRouer = async (req, res, next) => {
   const url = req.url;
+  const liID = Number(url.split("/")[2]);
   if (
     url === "/" ||
     url === "/profile" ||
@@ -8,6 +9,8 @@ const verifyRouer = async (req, res, next) => {
     url === "/logout" ||
     url === "/signup" ||
     url === "/delete" ||
+    liID === Number ||
+    url === `/delete/${liID}` ||
     url === "/error"
   ) {
     next();
