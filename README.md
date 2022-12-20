@@ -1,10 +1,10 @@
 # <h1> To Do List App </h1>
 
-```bash
-"mongodb+srv://nasa-api:kmd123@nasacluster.uvu3kll.mongodb.net/todo?retryWrites=true&w=majority"
-```
-
 ![Logo](https://user-images.githubusercontent.com/56252622/205436815-8c1d3a96-5019-4664-88a3-183c89519f16.jpg)
+
+## Demo
+
+https://todo-8b2y.onrender.com/
 
 ## Tech Stack
 
@@ -43,6 +43,18 @@ Install dependencies
   npm install
 ```
 
+## Environment Variables
+
+To run this project, you will need to add the following environment variables to your .env file
+
+`PORT=3000`
+
+`MONGO_URL ="mongodb+srv://nasa-api:kmd123@nasacluster.uvu3kll.mongodb.net/todo?retryWrites=true&w=majority"`
+
+`TOKEN_API = 'tokentodo'`
+
+`R_TOKEN_API = 'refreshtokentodo'`
+
 Start the server
 
 ```bash
@@ -52,32 +64,28 @@ Start the server
 <h2><i>File Structure</i></h2>
 <h3>Front_End</h3>
 <pre>
--client
-    |__public
-    |   |__css
-    |   |   |__todo.css
-    |   |   |__login.css
-    |   |   |__signup.css
-    |   |
-    |   |__js
-    |   |   |__todo.js
-    |   |   |__login.js
-    |   |   |__signup.js
-    |   |
-    |   |__img
-    |       |__jpg
-    |       |__jpeg
-    |       |__png
-    |
-    |__views
-        |__components
-        |   |__header.ejs
-        |   |__footer.ejs
-        |
-        |__pages
-            |__todo.ejs
-            |__login.ejs
-            |__signup.ejs
+    -public
+       |__css
+       |   |__styles.css
+       |
+       |__img
+           |__user.png
+           |__error.png
+           |__login.svg
+           |__signup.svg
+
+    -views
+      |__components
+      |   |__header.ejs
+      |   |__footer.ejs
+      |
+      |__pages
+          |__todo.ejs
+          |__login.ejs
+          |__signup.ejs
+          |__profile.ejs
+          |__error.ejs
+
 </pre>
 </hr>
 <h3>Back_End</h3>
@@ -86,21 +94,28 @@ Start the server
     |__server.js
     |__app.js
     |__.env
-    |__.gitignore
     |
     |__services
-    |   |__config.js
     |   |__mongodb.js
+    |
+    |__middlewares
+    |   |__router.middleware.js
+    |   |__verify.middleware.js
     |
     |__routes
     |   |__auth
     |   |   |__login.router.js
     |   |   |__signup.router.js
     |   |   |__refresh.router.js
+    |   |   |__error.router.js
     |   |
     |   |__todo
-    |       |__todo.router.js
-    |       |__users.router.js
+    |   |   |__todo.router.js
+    |   |   |__profile.router.js
+    |   |   |__logout.router.js
+    |   |   |__delete.router.js
+    |   |
+    |   |__api.js
     |
     |__controllers
     |    |__auth
@@ -110,18 +125,19 @@ Start the server
     |    |
     |    |__todo
     |        |__todo.controller.js
-    |        |__users.controller.js
+    |        |__profile.controller.js
+    |        |__logout.controller.js
+    |        |__delete.controller.js
     |
     |__models
         |__auth
         |   |__login.model.js
         |   |__signup.model.js
-        |   |__refresh.model.js
         |
         |__todo
             |__todo.model.js
-            |__users.model.js
             |__todo.mongo.js
+            |__users.model.js
             |__user.mongo.js
 </pre>
 
