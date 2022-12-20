@@ -7,7 +7,7 @@
     <div class="todo">
         <ul class="w-100 h-75  m-5 mt-0">
             <% todos.forEach(todo=> { %>
-                <li class="m-2 p-2">
+                <li class="m-2 p-2" id="todo-li">
                     <%= todo.todo %>
                         <a href="/delete/<%= todo.todoID %> " class="todo-delete">X</a>
                 </li>
@@ -21,4 +21,5 @@
         </form>
 
     </div>
+    <script src="/js/todo.js" type="text/javascript"></script>
     <%- include('../components/footer.ejs'); -%>

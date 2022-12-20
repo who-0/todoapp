@@ -122,6 +122,11 @@ body {
   color: black;
   background-color: rgba(210, 214, 210, 0.541);
 }
+.todo-done {
+  text-decoration: line-through;
+  color: black !important;
+  background-color: rgba(210, 214, 210, 0.541) !important;
+}
 .todo ul li .todo-delete {
   text-decoration: none;
   color: black;
@@ -151,6 +156,7 @@ body {
 .todo-submit:active {
   background-color: #08b6fa;
 }
+
 @media (max-width: 425px) {
   .todo {
     width: 90%;
