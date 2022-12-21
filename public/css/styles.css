@@ -116,6 +116,8 @@ body {
   justify-content: space-between;
   align-items: center;
   font-family: "Chivo Mono", monospace;
+  overflow: hidden;
+  z-index: 3;
 }
 
 .todo ul li:hover {
@@ -132,6 +134,7 @@ body {
   color: black;
   background-color: none;
   padding: 1% 2%;
+  z-index: 5;
 }
 .todo ul li .todo-delete:hover {
   color: red;
