@@ -7,10 +7,9 @@ const httpGetUser = async (req, res) => {
   try {
     const { email, password } = req.body;
     if (!email || !password) {
-      console.log("password is empty");
       if (apiCheck) {
         return res.status(400).json({
-          error: "Please Try again",
+          error: "!Need Username and Password",
         });
       } else {
         return res.render("pages/login", {
@@ -25,7 +24,7 @@ const httpGetUser = async (req, res) => {
     if (!user) {
       if (apiCheck) {
         return res.status(400).json({
-          error: "Please Try again",
+          error: "User not found.",
         });
       } else {
         return res.render("pages/login", {
@@ -37,7 +36,7 @@ const httpGetUser = async (req, res) => {
     } else if (!solvepwd) {
       if (apiCheck) {
         return res.status(400).json({
-          error: "Please Try again",
+          error: "Password is Incorrect.",
         });
       } else {
         return res.render("pages/login", {
@@ -60,9 +59,7 @@ const httpGetUser = async (req, res) => {
       );
       res.cookie("accessToken", accessToken, { httpOnly: true });
       res.cookie("refreshToken", refreshToken, { httpOnly: true });
-      console.log("url", apiCheck);
       if (apiCheck) {
-        console.log("apicheck is allow");
         return res.status(200).json(user);
       } else {
         return res.redirect("/");
@@ -70,10 +67,16 @@ const httpGetUser = async (req, res) => {
     }
   } catch (error) {
     console.log(error);
-    return res.render("pages/error", {
-      title: "Error",
-      message: "System Fail! Please Login Again",
-    });
+    if (apiCheck) {
+      return res.status(500).json({
+        error: "Something worng. Please try agin later.",
+      });
+    } else {
+      return res.render("pages/error", {
+        title: "Error",
+        message: "System Fail! Please Login Again",
+      });
+    }
   }
 };
 

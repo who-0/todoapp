@@ -3,12 +3,10 @@ const users = require("../../models/todo/users.mongo");
 const R_TOKEN = process.env.R_TOKEN_API;
 const TOKEN_API = process.env.TOKEN_API;
 const httpGetRefresh = async (req, res) => {
+  const apiCheck = req.baseUrl.includes("v1");
   const { refreshToken } = req.cookies;
   await jwt.verify(refreshToken, R_TOKEN, async (err, data) => {
     if (err) {
-      // return res.status(400).json({
-      //   error: err.message,
-      // });
       return res.render("pages/error", {
         title: "Error",
         message: err.message,
@@ -22,7 +20,11 @@ const httpGetRefresh = async (req, res) => {
     await users.findOneAndUpdate({ email }, { refreshToken });
     res.cookie("accessToken", accessToken, { httpOnly: true });
     res.cookie("refreshToken", refreshToken, { httpOnly: true });
-    res.redirect("/");
+    if (apiCheck) {
+      return;
+    } else {
+      res.redirect("/");
+    }
   });
 };
 module.exports = httpGetRefresh;
