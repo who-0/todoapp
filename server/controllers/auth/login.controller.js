@@ -3,31 +3,49 @@ const jwt = require("jsonwebtoken");
 const { getUserWithEmail } = require("../../models/auth/login.model");
 
 const httpGetUser = async (req, res) => {
+  const apiCheck = req.baseUrl.includes("v1");
   try {
-    console.log("url", req.url);
     const { email, password } = req.body;
-    if (!email && !password) {
-      return res.render("pages/login", {
-        title: "Login",
-        error: `Please Input All.`,
-        success: null,
-      });
+    if (!email || !password) {
+      console.log("password is empty");
+      if (apiCheck) {
+        return res.status(400).json({
+          error: "Please Try again",
+        });
+      } else {
+        return res.render("pages/login", {
+          title: "Login",
+          error: `Please Input All.`,
+          success: null,
+        });
+      }
     }
     const user = await getUserWithEmail(email);
-    if (!user) {
-      return res.render("pages/login", {
-        title: "Login",
-        error: `Check your email.`,
-        success: null,
-      });
-    }
     const solvepwd = await bcrypt.compare(password, user.password);
-    if (!solvepwd) {
-      return res.render("pages/login", {
-        title: "Login",
-        error: `Incorrect Password. Please try again!`,
-        success: null,
-      });
+    if (!user) {
+      if (apiCheck) {
+        return res.status(400).json({
+          error: "Please Try again",
+        });
+      } else {
+        return res.render("pages/login", {
+          title: "Login",
+          error: `Check your email.`,
+          success: null,
+        });
+      }
+    } else if (!solvepwd) {
+      if (apiCheck) {
+        return res.status(400).json({
+          error: "Please Try again",
+        });
+      } else {
+        return res.render("pages/login", {
+          title: "Login",
+          error: `Incorrect Password. Please try again!`,
+          success: null,
+        });
+      }
     } else {
       const TOKEN_API = process.env.TOKEN_API;
       const R_TOKEN = process.env.R_TOKEN_API;
@@ -42,7 +60,13 @@ const httpGetUser = async (req, res) => {
       );
       res.cookie("accessToken", accessToken, { httpOnly: true });
       res.cookie("refreshToken", refreshToken, { httpOnly: true });
-      return res.redirect("/");
+      console.log("url", apiCheck);
+      if (apiCheck) {
+        console.log("apicheck is allow");
+        return res.status(200).json(user);
+      } else {
+        return res.redirect("/");
+      }
     }
   } catch (error) {
     console.log(error);
