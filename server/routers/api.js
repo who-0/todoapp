@@ -16,5 +16,8 @@ api.use("/signup", signupRouter);
 api.use("/refresh", refreshRouter);
 api.use("/delete", deleteRouter);
 api.use("/error", error);
+// api.get("/test", (req, res) => {
+//   res.send("test success");
+// });
 
 module.exports = api;

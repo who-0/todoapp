@@ -17,6 +17,14 @@ app.use(morgan("tiny"));
 app.use(express.json());
 app.use(cookie());
 app.use(express.static(path.join(__dirname, "..", "public")));
-app.use(verifyRouer, api);
+app.use(api);
+//!---MERN api-----
+app.use("/v1", api);
+app.get("/*", (req, res) => {
+  return res.render("pages/error", {
+    title: "Error",
+    message: "Your Request is not defined on our system!",
+  });
+});
 
 module.exports = app;

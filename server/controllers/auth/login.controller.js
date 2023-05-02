@@ -4,8 +4,8 @@ const { getUserWithEmail } = require("../../models/auth/login.model");
 
 const httpGetUser = async (req, res) => {
   try {
+    console.log("url", req.url);
     const { email, password } = req.body;
-
     if (!email && !password) {
       return res.render("pages/login", {
         title: "Login",
