@@ -6,6 +6,7 @@ const httpGetUser = async (req, res) => {
   const apiCheck = req.baseUrl.includes("v1");
   try {
     const { email, password } = req.body;
+    console.log(email, password);
     if (!email || !password) {
       if (apiCheck) {
         return res.status(400).json({

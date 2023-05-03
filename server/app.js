@@ -12,7 +12,7 @@ const app = express();
 app.set("view engine", "ejs");
 app.set("views", path.join(__dirname, "..", "views"));
 
-// app.use(cors({origin:}))
+app.use(cors());
 app.use(bdparser.urlencoded({ extended: true }));
 app.use(helmet());
 app.use(morgan("tiny"));
